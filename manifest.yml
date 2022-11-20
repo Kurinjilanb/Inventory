@@ -1,0 +1,7 @@
+---
+application:
+ - name: Inventory Management
+   random-route: true
+   buildpacks: https://github.com/cloudfoundry/python-buildpack.git
+   memory: 1G
+   disk_quota: 1.5G
