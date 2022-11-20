@@ -3,7 +3,8 @@
 from flask import Flask,render_template,redirect, url_for
 from flask import request
 import sqlite3 as sql
-# import os
+import os
+from genvent.pywsgi import WSGIServer
 # PEOPLE_FOLDER = os.path.join('static', 'people_photo')
 
 
@@ -345,6 +346,7 @@ def deleteprouctmovement(movementID):
             return redirect(url_for('ProductMovement')+"?msg="+msg)
             con.close()
 
+port = os.getenv('VCAP_APP_PORT','8080')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,host='0.0.0.0',port=port)
